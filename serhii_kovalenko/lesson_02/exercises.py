@@ -96,10 +96,10 @@ values_list = [1, 2, 3, 4, 5]
 
 # variant 1
 some_dict = {}
-counter = 0
+index = 0
 for k in keys_list:
-    some_dict[k] = values_list[counter]
-    counter += 1
+    some_dict[k] = values_list[index]
+    index += 1
 print(some_dict)
 
 # variant 2
@@ -156,12 +156,20 @@ print(is_polidrom('allala'))
 
 # Написать функцию, которая принимает неограниченное количество аргументов и возвращает максимальный четный аргумент
 def get_even_number(*args):
+    ret = 0
+    for i in args:
+        ret = ret if i < ret and i % 2 == 0 else i
+    return ret
+
+
+def get_even_number_2(*args):
     some_list = [i for i in args if i % 2 == 0]
     some_list.reverse()
     return some_list[0]
 
 
 print(get_even_number(1, 4, 2, 7, 3, 5, 9, 10))
+print(get_even_number_2(1, 4, 2, 7, 3, 5, 9, 10))
 
 # Написать функцию, которая как аргумент принимает имя (текстом) одной из 4-х арифметических операций
 # (сумма, сложение, вычитание, деление) и возвращает другую функцию, которая выполняет эту операцию для 2х переменных
