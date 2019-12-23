@@ -152,6 +152,10 @@ def is_polidrom(str):
     return True
 
 
+def is_polidrom2(str):
+    return str == str[::-1]
+
+
 print(is_polidrom('allala'))
 
 # Написать функцию, которая принимает неограниченное количество аргументов и возвращает максимальный четный аргумент
@@ -213,6 +217,8 @@ print(any_some_dict)
 words_tuple = ("demigod", "rewire", "madam", "freer", "anutforajaroftuna", "kiosk")
 res = [i for i, z in zip(words_tuple, map(is_polidrom, words_tuple)) if z]
 print(res)
+
+print(list(filter(lambda x: x == x[::-1], words_tuple)))
 
 # Задача: создать список, элементы которого равны произведениям этих списков
 list1 = [1, 2, 3]
