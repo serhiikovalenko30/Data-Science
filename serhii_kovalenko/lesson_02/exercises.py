@@ -162,7 +162,7 @@ print(is_polidrom('allala'))
 def get_even_number(*args):
     ret = 0
     for i in args:
-        ret = ret if i < ret and i % 2 == 0 else i
+        ret = i if i > ret and i % 2 == 0 else ret
     return ret
 
 
@@ -172,13 +172,13 @@ def get_even_number_2(*args):
     return some_list[0]
 
 
-print(get_even_number(1, 4, 2, 7, 3, 5, 9, 10))
+print(get_even_number(10, 4, 2, 7, 3, 5, 9, 2))
 print(get_even_number_2(1, 4, 2, 7, 3, 5, 9, 10))
 
 # Написать функцию, которая как аргумент принимает имя (текстом) одной из 4-х арифметических операций
 # (сумма, сложение, вычитание, деление) и возвращает другую функцию, которая выполняет эту операцию для 2х переменных
-def return_some_f(func, x, y):
-    return func(x, y)
+def return_some_f(func):
+    return func
 
 
 # Используя функцию из предыдущей задачи создать список из полученных функций (выполняющих арифметические операции)
@@ -199,10 +199,10 @@ def div(x, y):
     return x / y
 
 
-print(return_some_f(sum, 2, 4))
-print(return_some_f(sub, 2, 4))
-print(return_some_f(mul, 2, 4))
-print(return_some_f(div, 2, 4))
+print(return_some_f(sum)(2, 4))
+print(return_some_f(sub)(2, 4))
+print(return_some_f(mul)(2, 4))
+print(return_some_f(div)(2, 4))
 
 """
 **Упражнения (Элементы функционального программирования):**
